@@ -14,3 +14,7 @@ export interface PostProps {
 	likesCount?: number;
 	comments?: any;
 }
+
+export interface PostBoxProps {
+	post: PostProps;
+}
