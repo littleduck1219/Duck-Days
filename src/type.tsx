@@ -18,3 +18,8 @@ export interface PostProps {
 export interface PostBoxProps {
 	post: PostProps;
 }
+
+// auth
+export interface RouterProps {
+	isAuthenticated: boolean;
+}

@@ -1,5 +1,4 @@
 import { PostProps } from "type";
-
 import MenuList from "Components/Menu";
 import PostForm from "Components/posts/PostForm";
 import PostBox from "Components/posts/PostBox";
@@ -11,7 +10,7 @@ const posts: PostProps[] = [
 	{ id: "4", email: "test@example.com", content: "content", createdAt: "2021-01-04", uid: "4" },
 ];
 
-export const HomePage = () => {
+const HomePage = () => {
 	return (
 		<div>
 			<div className='home'>
@@ -32,3 +31,5 @@ export const HomePage = () => {
 		</div>
 	);
 };
+
+export default HomePage;
