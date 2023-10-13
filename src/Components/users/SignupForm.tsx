@@ -1,8 +1,12 @@
-import React from "react";
-import { AiFillHeart } from "react-icons/ai";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignupForm = () => {
+	const [error, setError] = useState<string>("");
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
+	const [passworConfirmaiton, setPasswordConfirmation] = useState<string>("");
+
 	return (
 		<form className='form form--lg'>
 			<div className='form__title'>회원가입</div>
