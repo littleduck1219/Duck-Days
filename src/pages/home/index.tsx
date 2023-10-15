@@ -1,7 +1,7 @@
 import { PostProps } from "type";
-import MenuList from "Components/Menu";
-import PostForm from "Components/posts/PostForm";
-import PostBox from "Components/posts/PostBox";
+import MenuList from "components/Menu";
+import PostForm from "components/posts/PostForm";
+import PostBox from "components/posts/PostBox";
 
 const posts: PostProps[] = [
 	{ id: "1", email: "test@example.com", content: "content", createdAt: "2021-01-01", uid: "1" },

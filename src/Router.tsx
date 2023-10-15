@@ -30,9 +30,9 @@ export const Router = ({ isAuthenticated }: RouterProps) => {
 				</>
 			) : (
 				<>
-					<Route path='/signup' element={<SignupPage />} />
-					<Route path='/login' element={<LoginPage />} />
-					<Route path='*' element={<Navigate replace to='/' />} />
+					<Route path='/user/signup' element={<SignupPage />} />
+					<Route path='/user/login' element={<LoginPage />} />
+					<Route path='*' element={<Navigate replace to='/user/login' />} />
 				</>
 			)}
 		</Routes>
