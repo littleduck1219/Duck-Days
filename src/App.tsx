@@ -29,7 +29,7 @@ const App = () => {
 
 	return (
 		<Layout>
-			<ToastContainer />
+			<ToastContainer theme='dark' autoClose={1000} hideProgressBar newestOnTop />
 			{/* {init ? <Router isAuthenticated={isAuthenticated} /> : <Loader />} */}
 			<Router isAuthenticated={isAuthenticated} />
 		</Layout>

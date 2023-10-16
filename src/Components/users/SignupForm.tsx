@@ -1,4 +1,10 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+	GithubAuthProvider,
+	GoogleAuthProvider,
+	createUserWithEmailAndPassword,
+	getAuth,
+	signInWithPopup,
+} from "firebase/auth";
 import { app } from "firebaseApp";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -101,7 +107,7 @@ const SignupForm = () => {
 				</Link>
 			</div>
 			<div className='form__block--lg'>
-				<button type='submit' className='form__btn--submit' disabled={error?.length > 0}>
+				<button type='button' className='form__btn--submit' disabled={error?.length > 0} onClick={onSubmit}>
 					회원가입
 				</button>
 			</div>
