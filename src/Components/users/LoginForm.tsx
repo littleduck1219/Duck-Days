@@ -26,7 +26,7 @@ const LoginForm = () => {
 			setEmail(value);
 			const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-			if (!value?.match(validRegex)) {
+			if (value && !value.match(validRegex)) {
 				setError("이메일 형식이 올바르지 않습니다.");
 			} else {
 				setError("");
@@ -79,7 +79,11 @@ const LoginForm = () => {
 			})
 			.catch((error) => {
 				console.log(error);
-				toast.error("로그인에 실패했습니다.");
+				if (error.code === "auth/account-exists-with-different-credential") {
+					toast.error("이미 가입된 계정입니다.");
+				} else {
+					toast.error("로그인에 실패했습니다.");
+				}
 			});
 	};
 
