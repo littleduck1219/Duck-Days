@@ -2,13 +2,24 @@ import React, { useContext } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PostBoxProps } from "type";
 import AuthContext from "context/AuthContext";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "firebaseApp";
+import { toast } from "react-toastify";
 
 const PostBox = ({ post }: PostBoxProps) => {
 	const { user } = useContext(AuthContext);
-	const handleDelete = () => {};
+	const navigate = useNavigate();
+	const handleDelete = async () => {
+		const confirm = window.confirm("게시글을 삭제하시겠습니까?");
+		if (confirm) {
+			await deleteDoc(doc(db, "posts", post.id));
+			toast.success("게시글이 삭제 되었습니다.");
+			navigate("/");
+		}
+	};
 
 	return (
 		<div>
