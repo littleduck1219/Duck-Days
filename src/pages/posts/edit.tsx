@@ -1,4 +1,4 @@
-import PostEditForm from "components/posts/PostEditForm";
+import PostEditForm from "Components/posts/PostEditForm";
 import React from "react";
 
 const PostEdit = () => {

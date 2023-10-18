@@ -1,9 +1,8 @@
-import AuthContext from "context/AuthContext";
-import { addDoc, collection, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "firebaseApp";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FiImage } from "react-icons/fi";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { PostProps } from "type";
 
@@ -12,7 +11,8 @@ const PostEditForm = () => {
 	const params = useParams();
 	const [post, setPost] = useState<PostProps | null>(null);
 	const [content, setContent] = useState<string>("");
-	const { user } = useContext(AuthContext);
+	const navigate = useNavigate();
+	console.log(params);
 
 	const getPost = useCallback(async () => {
 		if (params.id) {
@@ -27,18 +27,12 @@ const PostEditForm = () => {
 		e.preventDefault();
 
 		try {
-			await addDoc(collection(db, "posts"), {
-				content: content,
-				createdAt: new Date()?.toLocaleDateString("ko", {
-					hour: "2-digit",
-					minute: "2-digit",
-					second: "2-digit",
-				}),
-				uid: user?.uid,
-				email: user?.email,
-			});
-			setContent("");
-			toast.success("게시글이 작성되었습니다.");
+			if (post) {
+				const postRef = doc(db, "posts", post?.id);
+				await updateDoc(postRef, { content });
+			}
+			navigate(`/posts/${post?.id}`);
+			toast.success("게시글이 수정되었습니다.");
 		} catch (e: any) {
 			setContent("");
 			toast.error("게시글이 작성실패하였습니다.");
