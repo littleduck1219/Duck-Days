@@ -1,10 +1,4 @@
-import {
-	GithubAuthProvider,
-	GoogleAuthProvider,
-	createUserWithEmailAndPassword,
-	getAuth,
-	signInWithPopup,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "firebaseApp";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";

@@ -13,6 +13,7 @@ export interface PostProps {
 	profileUrl?: string;
 	likesCount?: number;
 	comments?: any;
+	hashTags?: string[];
 }
 
 export interface PostBoxProps {
