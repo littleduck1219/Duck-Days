@@ -14,6 +14,7 @@ export interface PostProps {
 	likesCount?: number;
 	comments?: any;
 	hashTags?: string[];
+	imageUrl?: string;
 }
 
 export interface PostBoxProps {
