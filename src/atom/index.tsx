@@ -6,3 +6,4 @@ export const languageState = atom({
 	key: "language",
 	default: "ko",
 });
+const languageTurm;
